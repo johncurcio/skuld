@@ -14,6 +14,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      user: null,
       isSignedIn: false
     }
 
@@ -34,7 +35,7 @@ class App extends React.Component {
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({ isSignedIn: !!user });
+      this.setState({ isSignedIn: !!user, user: user });
       console.log(user);
     })
   }
@@ -44,7 +45,7 @@ class App extends React.Component {
       <div className="App">
         {
           this.state.isSignedIn ? (
-            <Dashboard />
+            <Dashboard user={this.state.user} />
           ) : (
             <Login uiConfig={this.uiConfig} firebase={firebase} />
           )

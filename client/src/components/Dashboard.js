@@ -8,7 +8,7 @@ class Dashboard extends React.Component {
 
   render(){
     return(
-      <DashboardHeader />
+      <DashboardHeader user={this.props.user}/>
     );
   }
 }
