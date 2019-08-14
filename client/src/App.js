@@ -28,7 +28,7 @@ class App extends React.Component {
         firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
       callbacks: {
-        signInSuccess: () => false
+        signInSuccessWithAuthResult: () => false
       }
     }
   }
